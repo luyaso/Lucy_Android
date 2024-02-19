@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Memez</string>
+
+    <string name="memestr1">moi quand je m\'enferme</string>
+    <string name="memestr2">moi quand je peaufine</string>
+    <string name="memestr3">Baby Gronk est-il le nouveau roi de la mode?</string>
+    <string name="memestr4">madonna étourdit dans un nouveau selfie</string>
+    <string name="memestr5">Donatella VERSACE 💜</string>
+    <string name="memestr6">de se casser un ongle</string>
+    <string name="memestr7">vois ton colocataire dans le couloir</string>
+    <string name="memestr8">moi quand je dois créer une application memez</string>
+
+    <string name="clear">Effacer</string>
+    <string name="next">Suivant</string>
+</resources>
