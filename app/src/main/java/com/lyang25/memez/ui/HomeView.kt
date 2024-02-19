@@ -1,5 +1,6 @@
 package com.lyang25.memez.ui
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -26,6 +29,16 @@ import com.lyang25.memez.ui.theme.MemezTheme
 
 @Composable
 fun HomeView(viewModel: MemezVM, modifier: Modifier) {
+
+    val context = LocalContext.current
+
+    val toastMsg1 = stringResource(id = R.string.cclick)
+
+    val toastMsg2 = pluralStringResource(
+        id = R.plurals.memesgen,
+        viewModel.counter,
+        viewModel.counter
+    )
 
     Column(
         verticalArrangement = Arrangement.Center
@@ -62,12 +75,14 @@ fun HomeView(viewModel: MemezVM, modifier: Modifier) {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             Button(onClick = {
-
+                viewModel.clearCounter()
+                Toast.makeText(context, toastMsg1, Toast.LENGTH_SHORT).show()
             }) {
                 Text(stringResource(id = R.string.clear))
             }
             Button(onClick = {
-
+                viewModel.newMeme()
+                Toast.makeText(context, toastMsg2, Toast.LENGTH_SHORT).show()
             }) {
                 Text(stringResource(id = R.string.next))
             }

@@ -13,4 +13,11 @@
 
     <string name="clear">Effacer</string>
     <string name="next">Suivant</string>
+
+    <string name="cclick">Votre compteur de mèmes est effacé.</string>
+    <plurals name="memesgen">
+        <item quantity="one">Depuis le lancement, nous vous avons montré %d mème.</item>
+        <item quantity="many">Depuis le lancement, nous vous avons montré %d mèmes.</item>
+        <item quantity="other">Depuis le lancement, nous vous avons montré %d mèmes.</item>
+    </plurals>
 </resources>

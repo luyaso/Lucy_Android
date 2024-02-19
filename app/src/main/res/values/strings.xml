@@ -12,4 +12,11 @@
 
     <string name="clear">Clear</string>
     <string name="next">Next</string>
+
+    <string name="cclick">Your meme counter is cleared.</string>
+    <plurals name="memesgen">
+        <item quantity="zero">Since launch we showed you %1$d memes.</item>
+        <item quantity="one">Since launch we showed you %1$d meme.</item>
+        <item quantity="other">Since launch we showed you %1$d memes.</item>
+    </plurals>
 </resources>

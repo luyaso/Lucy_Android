@@ -1,6 +1,7 @@
 package com.lyang25.memez.ui.model
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
@@ -34,8 +35,15 @@ class MemezVM: ViewModel() {
 
     var currStr by mutableStateOf(mstrings.random())
 
+    var counter by mutableIntStateOf(2)
+
     fun newMeme() {
         currImg = images.random()
         currStr = mstrings.random()
+        counter += 1
+    }
+
+    fun clearCounter() {
+        counter = 1
     }
 }
