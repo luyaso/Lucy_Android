@@ -4,6 +4,7 @@ import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,8 +16,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -47,27 +53,20 @@ fun HomeView(viewModel: MemezVM, modifier: Modifier) {
         viewModel.counter
     )
 
+    var angle by remember { mutableStateOf(0f) }
+
     Column(
         verticalArrangement = Arrangement.Center
     ) {
-        Box(modifier.weight(1f),
+        Box(modifier.weight(2f),
             contentAlignment = Alignment.Center) {
 
             Row {
                 IconButton(onClick = { mMediaPlayer.start() }) {
                     Icon(
-                        painter = painterResource(id = R.drawable.baseline_play_arrow_24),
+                        painter = painterResource(id = R.drawable.baseline_auto_awesome_24),
                         contentDescription = "",
                         Modifier.size(100.dp))
-                }
-
-                // IconButton for Pause Action
-                IconButton(onClick = { mMediaPlayer.pause() }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.pause_icon),
-                        contentDescription = "",
-                        Modifier.size(100.dp)
-                    )
                 }
             }
         }
@@ -84,7 +83,9 @@ fun HomeView(viewModel: MemezVM, modifier: Modifier) {
                     painter = painterResource(viewModel.currImg),
                     contentDescription = "Meme Image",
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize())
+                    modifier = Modifier.fillMaxSize().rotate(angle).clickable {
+                        angle = (angle + 180f) % 360f
+                    })
             }
 
             Text(text = stringResource(id = viewModel.currStr),
@@ -99,7 +100,7 @@ fun HomeView(viewModel: MemezVM, modifier: Modifier) {
 
         Row(
             modifier.weight(1f),
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(onClick = {
                 viewModel.clearCounter()

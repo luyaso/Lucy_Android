@@ -13,6 +13,8 @@
     <string name="clear">Clear</string>
     <string name="next">Next</string>
 
+    <string name="clickme">Click Me!</string>
+
     <string name="cclick">Your meme counter is cleared.</string>
     <plurals name="memesgen">
         <item quantity="zero">Since launch we showed you %1$d memes.</item>
